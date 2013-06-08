@@ -1464,7 +1464,8 @@ static errr init_alloc(void)
 bool init_angband(void)
 {
 	/* Which game are we playing? */
-	if (game_mode == 0)
+	/* Dodgy hack to allow some function even if game_mode is uninitialized garbage */
+	if (game_mode != GAME_NPPMORIA && game_mode != GAME_NPPANGBAND)
 	{
 		get_game_mode();
 	}
