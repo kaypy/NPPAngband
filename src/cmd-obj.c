@@ -1046,6 +1046,8 @@ static bool quaff_potion(object_type *o_ptr, bool *ident)
 
 		case SV_POTION_LOSE_MEMORIES:
 		{
+			/* hack to allow fix for wacky max_lev */
+			p_ptr->max_lev=0;
 			if (!p_ptr->state.hold_life && (p_ptr->exp > 0))
 			{
 				msg_print("You feel your memories fade.");
