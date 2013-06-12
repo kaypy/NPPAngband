@@ -861,7 +861,7 @@ bool set_food(int v)
 	p_ptr->update |= (PU_BONUS);
 
 	/* Redraw hunger */
-	p_ptr->redraw |= (PR_STATUS);
+	p_ptr->redraw |= (PR_STATUS|PR_HP);
 
 	/* Handle stuff */
 	handle_stuff();
