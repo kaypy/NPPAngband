@@ -3270,15 +3270,18 @@ void calc_monster_speed(int y, int x)
 	/*note: a monster should only have one of these flags*/
 	if (m_ptr->mflag & (MFLAG_SLOWER))
 	{
-		/* Allow some small variation each time to make pillar dancing harder */
-		i = calc_energy_gain(r_ptr->r_speed);
-		speed -= rand_spread(0, i);
+		/* decrease speed by *about* half a category */
+		speed -= rand_spread(4, 3);
 	}
 	else if (m_ptr->mflag & (MFLAG_FASTER))
 	{
-		/* Allow some small variation each time to make pillar dancing harder */
-		i = calc_energy_gain(r_ptr->r_speed);
-		speed += rand_spread(0, i);
+		/* increase speed by *about* half a category */
+		speed += rand_spread(4, 3);
+	}
+	else
+	{
+		/* give a bit of variation to 'standard' speed critters */
+		speed += rand_spread(0, 2);		
 	}
 
 	/*factor in the hasting and slowing counters*/
