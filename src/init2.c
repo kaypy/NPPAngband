@@ -1469,6 +1469,10 @@ bool init_angband(void)
 	{
 		get_game_mode();
 	}
+	
+	/* Forget the item tester_swap restriction */
+	/* Should this be initialized elsewhere? */
+	item_tester_swap = TRUE;
 
 	event_signal(EVENT_ENTER_INIT);
 
