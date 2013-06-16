@@ -1463,6 +1463,13 @@ static errr init_alloc(void)
  */
 bool init_angband(void)
 {
+	
+	/* If we have a savefile, use that for game mode instead */
+	if (savefile[0])
+	{
+		load_gamemode();
+	}
+		
 	/* Which game are we playing? */
 	/* Dodgy hack to allow some function even if game_mode is uninitialized garbage */
 	if (game_mode != GAME_NPPMORIA && game_mode != GAME_NPPANGBAND)
@@ -1592,9 +1599,10 @@ bool init_angband(void)
 	}
 
 	/* Not that everything is initialized, fill in some specifics for the game mode chosen. */
+	/* NB all this stuff is unreachable!
 	init_game_mode();
 
-	return (FALSE);
+	return (FALSE);*/
 }
 
 
