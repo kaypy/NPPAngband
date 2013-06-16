@@ -3245,7 +3245,7 @@ static bool no_threat(const monster_race *r_ptr)
 /*calculate the monster_speed of a monster at a given location*/
 void calc_monster_speed(int y, int x)
 {
-	int speed, i;
+	int speed;
 
 	/*point to the monster at the given location & the monster race*/
 	monster_type *m_ptr = &mon_list[cave_m_idx[y][x]];
